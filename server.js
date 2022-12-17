@@ -6,7 +6,7 @@ const { loadPlanetsData } = require("./models/planets.model");
 
 const { PORT } = require("./config");
 
-const { planetRouter } = require("./routes");
+const { planetRouter, launchesRouter } = require("./routes");
 
 const app = express();
 
@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 
 // routes
 app.use("/api", planetRouter);
+app.use("/api", launchesRouter);
 
 async function startServer() {
   await loadPlanetsData();
